@@ -114,39 +114,39 @@ public class Hw3 {
     }
 
     /**
-     * @param n
+     * @param number число
      * @return значение
      * @apiNote метод выводит n-е число с конца односвязного списка, предварительно не узнавая его размер
      */
-    public int getNthNodeFromEnd(int n) {
-        Node p = head;
-        Node q = head;
+    public int getNthNodeFromEnd(int number) {
+        Node away = head;
+        Node moves = head;
 
-        for (int i = 0; i < n; i++) {
-            if (q == null) {
+        for (int i = 0; i < number; i++) {
+            if (moves == null) {
                 return -1; // если список короче, чем n элементов
             }
-            q = q.next;
+            moves = moves.next;
         }
 
-        while (q != null) {
-            p = p.next;
-            q = q.next;
+        while (moves != null) {
+            away = away.next;
+            moves = moves.next;
         }
 
-        return p.value;
+        return away.value;
     }
 
     /**
-     * @param n
+     * @param number число
      * @apiNote Метод печатает на экран результат получения метода getNthNodeFromEnd()
      */
-    public void printNthNodeFromEnd(int n) {
-        int result = getNthNodeFromEnd(n);
+    public void printNthNodeFromEnd(int number) {
+        int result = getNthNodeFromEnd(number);
         if (result != -1) {
             System.out.println(result);
         } else {
-            System.out.println("Список короче, чем " + n + " элементов");
+            System.out.println("Список короче, чем " + number + " элементов");
         }
     }
 }
