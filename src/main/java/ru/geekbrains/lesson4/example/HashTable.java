@@ -1,5 +1,12 @@
 package ru.geekbrains.lesson4.example;
 
+import java.lang.reflect.Array;
+
+/**
+ * Реализация ХэшТаблицы
+ * @param <K>
+ * @param <V>
+ */
 public class HashTable<K, V> {
 
     private static final int INT_BASKET_COUNT = 16;
@@ -12,7 +19,7 @@ public class HashTable<K, V> {
     }
 
     public HashTable(int initSize) {
-        baskets = (Basket[]) new Object[initSize];
+        baskets = (Basket[]) Array.newInstance(Basket.class, initSize);
     }
 
     private int calculateBasketIndex(K key) {
